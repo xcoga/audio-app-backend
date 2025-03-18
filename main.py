@@ -35,16 +35,16 @@ app = FastAPI()
 app.include_router(users.router)
 
 # For CORS
-# origins = [
-#     "http://localhost",  # Local development
-#     "http://localhost:3000",  # Local dev on a specific port
-#     "http://127.0.0.1",  # For IPv4 loopback address
-#     "http://frontend:3000",  # Docker Compose frontend service name
-# ]
+origins = [
+    "http://localhost",  # Local development
+    "http://localhost:3000",  # Local dev on a specific port
+    "http://127.0.0.1",  # For IPv4 loopback address
+    "http://frontend:3000",  # Docker Compose frontend service name
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
